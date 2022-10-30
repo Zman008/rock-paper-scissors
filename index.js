@@ -11,16 +11,14 @@ function getComputerChoice() {
     return randomRPS = RPSList[randomNum];
 }
 
-keepGoing = true;
-
-while (keepGoing) {
-    getPlayerChoice();
-    getComputerChoice();
-
+function playRound(playerRPS = getPlayerChoice(), randomRPS = getComputerChoice()) {
+    
     playerRPS = playerRPS.toUpperCase();
     randomRPS = randomRPS.toUpperCase();
 
-    winCondition = (playerRPS == 'rock' && randomRPS == 'scissor') || (playerRPS == 'paper' && randomRPS == 'rock') || (playerRPS == 'scissor' && randomRPS == 'paper');
+    winCondition = (playerRPS == 'ROCK' && randomRPS == 'SCISSOR') || 
+        (playerRPS == 'PAPER' && randomRPS == 'ROCK') || 
+        (playerRPS == 'SCISSOR' && randomRPS == 'PAPER');
 
     if (playerRPS == 'Q') {
         keepGoing = false;
@@ -32,3 +30,11 @@ while (keepGoing) {
         alert('you lose');
     }
 }
+
+function game() {
+    for (i=0; i<5; i++){
+        playRound();
+    }
+}
+
+game();

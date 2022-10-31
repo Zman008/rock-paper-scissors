@@ -44,9 +44,10 @@ function playRound(playerRPS = getPlayerChoice(), randomRPS = getComputerChoice(
     
 }
 
-let keepGoing = true;
 
 function game() {
+    let keepGoing = true;
+    
     while (keepGoing) {
         
         playRound();

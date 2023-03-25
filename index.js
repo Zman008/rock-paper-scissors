@@ -1,10 +1,10 @@
 // RPS is rock paper scissors
 
-RPSList = ['ROCK', 'PAPER', 'SCISSOR'];
+RPSList = ['rock', 'paper', 'scissor'];
 
 let playerScore = 0;
 let computerScore = 0;
-let displayScore;
+let displayScore = `Player Score: ${playerScore} \t\t\t\t Computer Score: ${computerScore}`;
 
 
 function getPlayerChoice() {
@@ -14,10 +14,12 @@ function getPlayerChoice() {
 
 function getComputerChoice() {
     randomNum = Math.floor(Math.random() * 3);
-    return randomRPS = RPSList[randomNum];
+    randomRPS = RPSList[randomNum];
+    return randomRPS = randomRPS.toUpperCase();
 }
 
 function playRound(playerRPS = getPlayerChoice(), randomRPS = getComputerChoice()) {
+    
 
     winCondition = (playerRPS == 'ROCK' && randomRPS == 'SCISSOR') || 
         (playerRPS == 'PAPER' && randomRPS == 'ROCK') || 
@@ -51,14 +53,13 @@ function game() {
         playRound();
 
         if (playerScore == 3) {
-            alert('GAME OVER \nYou Win\n\n' + displayScore);
+            alert('GAME OVER \n You Win\n\n' + displayScore);
             keepGoing = false;
         } else if (computerScore == 3) {
-            alert('GAME OVER \nYou Lose\n\n' + displayScore);
+            alert('GAME OVER \n You Lose\n\n' + displayScore);
             keepGoing = false;
         }
     }
 }
 
 game();
-

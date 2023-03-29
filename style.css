@@ -1,0 +1,9 @@
+.gameResult, .score {
+    margin: auto;
+    width: fit-content;
+}
+
+.choiceButtons {
+    margin: auto;
+    width: fit-content;
+}

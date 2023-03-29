@@ -1,64 +1,49 @@
 // RPS is rock paper scissors
 
-RPSList = ['ROCK', 'PAPER', 'SCISSOR'];
+RPSList = ["ROCK", "PAPER", "SCISSORS"];
 
 let playerScore = 0;
 let computerScore = 0;
 let displayScore;
+let randomRPS;
+let playerRPS;
+const result = document.querySelector(".gameResult");
+const score = document.querySelector('.score');
 
+score.setAttribute('style', 'white-space: pre');
 
-function getPlayerChoice() {
-    playerRPS = prompt("rock or paper or scissor");
-    return playerRPS = playerRPS.toUpperCase();
-}
+const btns = document.querySelectorAll("button");
+
+btns.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    playerRPS = btn.id;
+    playRound();
+  });
+});
 
 function getComputerChoice() {
-    randomNum = Math.floor(Math.random() * 3);
-    return randomRPS = RPSList[randomNum];
+  randomNum = Math.floor(Math.random() * 3);
+  return (randomRPS = RPSList[randomNum]);
 }
 
-function playRound(playerRPS = getPlayerChoice(), randomRPS = getComputerChoice()) {
+function playRound(randomRPS = getComputerChoice()) {
+  winCondition =
+    (playerRPS == "ROCK" && randomRPS == "SCISSORS") ||
+    (playerRPS == "PAPER" && randomRPS == "ROCK") ||
+    (playerRPS == "SCISSORS" && randomRPS == "PAPER");
 
-    winCondition = (playerRPS == 'ROCK' && randomRPS == 'SCISSOR') || 
-        (playerRPS == 'PAPER' && randomRPS == 'ROCK') || 
-        (playerRPS == 'SCISSOR' && randomRPS == 'PAPER');
+  if (playerRPS == randomRPS) {
+    result.textContent = 'Draw';
+  } else if (winCondition) {
+    playerScore++;
+    result.textContent = 'Win';
+  } else {
+    computerScore++;
+    result.textContent = 'Lose';
+  }
+  console.log(randomRPS)
 
-    if (playerRPS == randomRPS) {
-        displayScore = `Player Score: ${playerScore} \t\t\t\t Computer Score: ${computerScore}`;
-        alert('Draw \n\n' + displayScore);
-    } else if (winCondition) {
-        playerScore++;
-        displayScore = `Player Score: ${playerScore} \t\t\t\t Computer Score: ${computerScore}`;
-
-        alert('WIN! \n\n' + displayScore);
-    } else {
-        computerScore++;
-        displayScore = `Player Score: ${playerScore} \t\t\t\t Computer Score: ${computerScore}`;
-        
-        alert('you lose \n\n' + displayScore);
-    }
-    
-    displayScore = `Player Score: ${playerScore} \t\t\t\t Computer Score: ${computerScore}`;
-    
+  displayScore = `Player Score: ${playerScore} \t\t Computer Score: ${computerScore}`;
+  score.textContent = displayScore;
 }
-
-
-function game() {
-    let keepGoing = true;
-    
-    while (keepGoing) {
-        
-        playRound();
-
-        if (playerScore == 3) {
-            alert('GAME OVER \nYou Win\n\n' + displayScore);
-            keepGoing = false;
-        } else if (computerScore == 3) {
-            alert('GAME OVER \nYou Lose\n\n' + displayScore);
-            keepGoing = false;
-        }
-    }
-}
-
-game();
 

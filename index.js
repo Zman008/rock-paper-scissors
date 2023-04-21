@@ -41,8 +41,7 @@ function playRound(randomRPS = getComputerChoice()) {
     computerScore++;
     result.textContent = 'Lose';
   }
-  console.log(randomRPS)
-
+  
   displayScore = `Player Score: ${playerScore} \t\t Computer Score: ${computerScore}`;
   score.textContent = displayScore;
 }

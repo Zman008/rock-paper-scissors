@@ -1,9 +1,42 @@
-.gameResult, .score {
-    margin: auto;
-    width: fit-content;
+html {
+  background-color: lavender;
+}
+
+.Title {
+  width: fit-content;
+  margin: auto;
+  font-family: Aboreto;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.gameResult,
+.score {
+  margin: auto;
+  width: fit-content;
+  font-size: xx-large;
+}
+
+.score-containers {
+  display: flex;
+  justify-content: space-around;
+}
+
+.score-containers div {
+  border: 0.1em solid black;
+  background-color: white;
+  border-radius: 4px;
+  padding: 0.5em;
+  font-size: xx-large;
 }
 
 .choiceButtons {
-    margin: auto;
-    width: fit-content;
+  margin: auto;
+  width: fit-content;
+}
+
+button {
+  padding: 1em 2em;
+  margin: 4em 1em;
+  font-size: larger;
 }

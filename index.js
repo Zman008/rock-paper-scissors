@@ -4,13 +4,12 @@ RPSList = ["ROCK", "PAPER", "SCISSORS"];
 
 let playerScore = 0;
 let computerScore = 0;
-let displayScore;
 let randomRPS;
 let playerRPS;
+const html = document.querySelector("html");
 const result = document.querySelector(".gameResult");
-const score = document.querySelector('.score');
-
-score.setAttribute('style', 'white-space: pre');
+const computerScoreDisplay = document.querySelector('.computer-score');
+const playerScoreDisplay = document.querySelector('.player-score');
 
 const btns = document.querySelectorAll("button");
 
@@ -34,15 +33,18 @@ function playRound(randomRPS = getComputerChoice()) {
 
   if (playerRPS == randomRPS) {
     result.textContent = 'Draw';
+    html.style.backgroundColor = 'grey';
   } else if (winCondition) {
     playerScore++;
     result.textContent = 'Win';
+    html.style.backgroundColor = 'LimeGreen';
   } else {
     computerScore++;
     result.textContent = 'Lose';
+    html.style.backgroundColor = 'OrangeRed';
   }
   
-  displayScore = `Player Score: ${playerScore} \t\t Computer Score: ${computerScore}`;
-  score.textContent = displayScore;
+  computerScoreDisplay.textContent = computerScore;
+  playerScoreDisplay.textContent = playerScore;
 }
 

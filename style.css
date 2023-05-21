@@ -1,42 +1,63 @@
 html {
-  background-color: lavender;
+  background-color: lightskyblue;
+}
+
+.rps-game {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Title {
-  width: fit-content;
-  margin: auto;
   font-family: Aboreto;
-  font-size: xx-large;
   font-weight: bolder;
-}
-
-.gameResult,
-.score {
-  margin: auto;
-  width: fit-content;
   font-size: xx-large;
 }
 
-.score-containers {
-  display: flex;
-  justify-content: space-around;
+.gameResult {
+  font-size: xx-large;
 }
 
-.score-containers div {
+.part {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-display {
   border: 0.1em solid black;
   background-color: white;
   border-radius: 4px;
   padding: 0.5em;
   font-size: xx-large;
+  margin: 3em;
 }
 
-.choiceButtons {
-  margin: auto;
-  width: fit-content;
+.choice-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  border: 0.4em solid black;
+  border-radius: .4em;
+  height: 20vh;
+  width: 20vh;
+}
+
+.choice-img img {
+  height: 90%;
+  width: 90%;
 }
 
 button {
   padding: 1em 2em;
-  margin: 4em 1em;
+  margin: 1em;
   font-size: larger;
+}
+
+.space {
+  visibility: hidden;
 }

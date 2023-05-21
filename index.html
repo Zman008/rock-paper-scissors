@@ -10,23 +10,34 @@
     <link href='https://fonts.googleapis.com/css?family=Aboreto' rel='stylesheet'>
 </head>
 <body>  
-    <p class="Title">
-        MAN VS MACHINE
-    </p>
-
-    <div class="score-containers">
-        <div class="computer-score">0</div>
-        <div class="player-score">0</div>
-    </div>
-
-    <br>
-    <div class="gameResult"></div>
-    <br>
+    <div class="rps-game">
+        <p class="Title">
+            MAN VS MACHINE
+        </p>
         
-    <div class="choiceButtons">        
-        <button id="ROCK">Rock</button>
-        <button id="PAPER">Paper</button>
-        <button id="SCISSORS">Scissors</button>
+        <div class="machine-part part">
+            <div class="score-display computer-score">0</div>
+            <div class="choice-img">
+                <img class="cmp-choice-img" src="" alt="">
+            </div>
+            <div class="score-display space">0</div>
+        </div>
+        
+        <img class="gameResult" src="img/equal.png" alt="" style="height: 2em;">
+        
+        <div class="player-part part">
+            <div class="score-display space">0</div>
+            <div class="choice-img">
+                <img class="plyr-choice-img" src="" alt="">
+            </div>
+            <div class="score-display player-score">0</div>
+        </div>
+            
+        <div class="choiceButtons">
+            <button id="ROCK">Rock</button>
+            <button id="PAPER">Paper</button>
+            <button id="SCISSORS">Scissors</button>
+        </div>
     </div>
 </body>
 </html>

@@ -1,3 +1,7 @@
+* {
+  overflow: hidden;
+}
+
 html {
   background-color: lightskyblue;
 }
@@ -13,10 +17,6 @@ html {
 .Title {
   font-family: Aboreto;
   font-weight: bolder;
-  font-size: xx-large;
-}
-
-.gameResult {
   font-size: xx-large;
 }
 
@@ -60,4 +60,24 @@ button {
 
 .space {
   visibility: hidden;
+}
+
+.game-result {
+  border: none;
+  border-radius: 2em;
+  padding: 1.5em;
+  background-color: lightgray;
+}
+
+.play-again {
+  display: block;
+  border-radius: 1em;
+  border: none;
+  background-color: darkgray;
+  margin-top: 1.5em;
+}
+
+.result-text {
+  font-family: Garamond, serif;
+  text-align: center;
 }

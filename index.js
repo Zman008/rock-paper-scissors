@@ -1,18 +1,18 @@
-// RPS is rock paper scissors
-
-RPSList = ["ROCK", "PAPER", "SCISSORS"];
-
+const RPSList = ["ROCK", "PAPER", "SCISSORS"];
 let playerScore = 0;
 let computerScore = 0;
 let randomRPS;
 let playerRPS;
 const html = document.querySelector("html");
-const result = document.querySelector(".gameResult");
+const roundResult = document.querySelector(".round-result");
 const computerScoreDisplay = document.querySelector('.computer-score');
 const playerScoreDisplay = document.querySelector('.player-score');
-const btns = document.querySelectorAll("button");
+const btns = document.querySelectorAll(".choice-btn");
 const computerChoiceImg = document.querySelector(".cmp-choice-img");
 const playerChoiceImg = document.querySelector(".plyr-choice-img");
+const gameResult = document.querySelector(".game-result");
+const resultText = document.querySelector(".result-text");
+const playAgain = document.querySelector(".play-again");
 
 btns.forEach((btn) => {
   btn.addEventListener("click", function () {
@@ -21,15 +21,7 @@ btns.forEach((btn) => {
     
     playRound();
 
-    if (playerScore == 5) {
-      alert("You win!");
-      playerScore = 0;
-      computerScore = 0;
-    } else if (computerScore == 5) {
-      alert("You lose!");
-      playerScore = 0;
-      computerScore = 0;
-    }
+    checkGameEnd();
   });
 });
 
@@ -46,18 +38,41 @@ function playRound(randomRPS = getComputerChoice()) {
     (playerRPS == "SCISSORS" && randomRPS == "PAPER");
 
   if (playerRPS == randomRPS) {
-    result.src = './img/equal.png';
+    roundResult.src = './img/equal.png';
     html.style.backgroundColor = 'grey';
   } else if (winCondition) {
     playerScore++;
-    result.src = './img/circle.png';
+    roundResult.src = './img/circle.png';
     html.style.backgroundColor = 'palegreen';
   } else {
     computerScore++;
-    result.src = './img/cross.png';
+    roundResult.src = './img/cross.png';
     html.style.backgroundColor = 'tomato';
   }
   
   computerScoreDisplay.textContent = computerScore;
   playerScoreDisplay.textContent = playerScore;
 }
+
+function checkGameEnd() {
+  if (playerScore == 5) {
+    resultText.textContent = "You Win!";
+    gameResult.showModal();
+  } else if (computerScore == 5) {
+    resultText.textContent = "You Lose!";
+    gameResult.showModal();
+  }
+}
+
+playAgain.addEventListener("click", () => {
+  gameResult.close();
+  playerScore = 0;
+  computerScore = 0;
+  html.style.backgroundColor = 'lightskyblue';
+  roundResult.src = './img/equal.png';
+  computerChoiceImg.src = '';
+  playerChoiceImg.src = '';
+  computerScoreDisplay.textContent = computerScore;
+  playerScoreDisplay.textContent = playerScore;
+})
+

@@ -23,7 +23,7 @@
             <div class="score-display space">0</div>
         </div>
         
-        <img class="gameResult" src="img/equal.png" alt="" style="height: 2em;">
+        <img class="round-result" src="img/equal.png" alt="" style="height: 4em;">
         
         <div class="player-part part">
             <div class="score-display space">0</div>
@@ -34,10 +34,15 @@
         </div>
             
         <div class="choiceButtons">
-            <button id="ROCK">Rock</button>
-            <button id="PAPER">Paper</button>
-            <button id="SCISSORS">Scissors</button>
+            <button id="ROCK" class="choice-btn">Rock</button>
+            <button id="PAPER" class="choice-btn">Paper</button>
+            <button id="SCISSORS" class="choice-btn">Scissors</button>
         </div>
     </div>
+
+    <dialog class="game-result">
+        <h1 class="result-text"></h1>
+        <button class="play-again">Play Again?</button>
+    </dialog>
 </body>
 </html>
